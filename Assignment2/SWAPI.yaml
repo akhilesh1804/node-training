@@ -1,0 +1,102 @@
+swagger: '2.0'
+info:
+  description: >-
+    The Star Wars API is the world's first quantified and
+    programmatically-formatted set of Star Wars data. After hours of watching
+    films and trawling through content online, we present to you all the People,
+    Films, Species, Starships, Vehicles and Planets from Star Wars.
+  version: ''
+  title: SWAPI-The Star Wars API
+host: swapi.co
+basePath: /api
+tags:
+  - name: People
+    description: >-
+      A People resource is an individual person or character within the Star
+      Wars universe.
+schemes:
+  - http
+paths:
+  '/people/{:ID}':
+    get:
+      tags:
+        - People
+      summary: get a specific people resource
+      description: Returns a single character
+      produces:
+        - application/json
+      parameters:
+        - name: ':ID'
+          in: path
+          description: ID of character to return
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/People'
+        '301':
+          description: Moved Permanently
+        '404':
+          description: Not found
+definitions:
+  People:
+    properties:
+      birth_year:
+        type: string
+        example: 19 BBY
+      eye_color:
+        type: string
+        example: Blue
+      films:
+        type: array
+        items:
+          type: string
+          example: 'http://swapi.co/api/films/1/ '
+      gender:
+        type: string
+        example: Male
+      hair_color:
+        type: string
+        example: Blond
+      height:
+        type: string
+        example: '187'
+      homeworld:
+        type: string
+        example: 'http://swapi.co/api/planets/1/'
+      mass:
+        type: string
+        example: '77'
+      name:
+        type: string
+        example: Luke Skywalker
+      skin_color:
+        type: string
+        example: Fair
+      created:
+        type: string
+        example: '2014-12-09T13:50:51.644000Z'
+      edited:
+        type: string
+        example: '2014-12-10T13:52:43.172000Z'
+      species:
+        type: array
+        items:
+          type: string
+          example: 'http://swapi.co/api/species/1/ '
+      starships:
+        type: array
+        items:
+          type: string
+          example: 'http://swapi.co/api/starships/12/ '
+      url:
+        type: string
+        example: 'http://swapi.co/api/people/1/'
+      vehicles:
+        type: array
+        items:
+          type: string
+          example: 'http://swapi.co/api/vehicles/14/'
