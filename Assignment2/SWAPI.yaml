@@ -17,6 +17,23 @@ tags:
 schemes:
   - http
 paths:
+  /people/:
+    get:
+      tags:
+        - People
+      summary: get all the people resources
+      description: Returns all characters in array
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/People'
+        '301':
+          description: Moved Permanently
+        '404':
+          description: Not found
   '/people/{:ID}':
     get:
       tags:
@@ -36,13 +53,46 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/People'
+            $ref: '#/definitions/ID'
+        '301':
+          description: Moved Permanently
+        '404':
+          description: Not found
+  /people/schema:
+    get:
+      tags:
+        - Schema
+      summary: view the JSON schema for this resource
+      description: ''
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Schema'
         '301':
           description: Moved Permanently
         '404':
           description: Not found
 definitions:
   People:
+    properties:
+      count:
+        type: integer
+        example: 57
+      next:
+        type: string
+        example: 'http://swapi.co/api/people/?page=2'
+      previous:
+        type: string
+        example: null
+      result:
+        type: array
+        items:
+          type: string
+          $ref: '#/definitions/ID'
+  ID:
     properties:
       birth_year:
         type: string
@@ -100,3 +150,11 @@ definitions:
         items:
           type: string
           example: 'http://swapi.co/api/vehicles/14/'
+  Schema:
+    properties:
+      $schema:
+        type: string
+        example: 'http://json-schema.org/draft-04/schema'
+      description:
+        type: string
+        example: A person within the Star Wars universe
