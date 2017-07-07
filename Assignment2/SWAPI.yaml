@@ -158,3 +158,189 @@ definitions:
       description:
         type: string
         example: A person within the Star Wars universe
+      properties:
+        type: object
+        properties:
+          mass:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: The mass of this person in kilograms.
+          height:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: The height of this person in meters.
+          url:
+            type: object
+            properties:
+              description:
+                type: string
+                example: The url of this resource
+              type:
+                type: string
+                example: string
+              format:
+                type: string
+                example: uri
+          gender:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: The gender of this person (if known).
+          species:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: The url of the species resource that this person is.
+          skin_color:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: The skin color of this person.
+          eye_color:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: The eye color of this person.
+          created:
+            type: object
+            properties:
+              description:
+                type: string
+                example: >-
+                  The ISO 8601 date format of the time that this resource was
+                  created.
+              type:
+                type: string
+                example: string
+              format:
+                type: string
+                example: date-time
+          homeworld:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: The url of the planet resource that this person was born on.
+          hair_color:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: The hair color of this person.
+          birth_year:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: >-
+                  The birth year of this person. BBY (Before the Battle of
+                  Yavin) or ABY (After the Battle of Yavin).
+          starships:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: An array of starship resources that this person has piloted
+          name:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: The name of this person.
+          edited:
+            type: object
+            properties:
+              description:
+                type: string
+                example: >-
+                  the ISO 8601 date format of the time that this resource was
+                  edited.
+              type:
+                type: string
+                example: string
+              format:
+                type: string
+                example: date-time
+          films:
+            type: object
+            properties:
+              type:
+                type: string
+                example: array
+              description:
+                type: string
+                example: >-
+                  An array of urls of film resources that this person has been
+                  in.
+          vehicles:
+            type: object
+            properties:
+              type:
+                type: string
+                example: array
+              description:
+                type: string
+                example: An array of starship resources that this person has piloted.
+          required:
+            type: array
+            example:
+              - name
+              - height
+              - mass
+              - hair_color
+              - skin_color
+              - eye_color
+              - birth_year
+              - gender
+              - homeworld
+              - films
+              - species
+              - vehicles
+              - starships
+              - url
+              - created
+              - editedname
+          type:
+            type: string
+            example: object
