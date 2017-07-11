@@ -1,11 +1,19 @@
 var fs = require('fs');
-var callback = function (err, content) {
-  //if(err) throw err;
-  console.log(content);
+fs.readFile('File1.txt', 'utf8', function (err, data) {
   console.log("============");
-}
-var arr = ['File1.txt', 'File2.txt', 'File3.txt', 'File4.txt', 'File5.txt'];
-for (var i = 0; i < arr.length; i++) {
-  fs.readFile(arr[i], 'utf8', callback);
-}
-console.log("============");
+  console.log(data);
+  fs.appendFile('File2.txt', data, 'utf8', function (err) {
+    fs.readFile('File2.txt', 'utf8', function (err, content) {
+      console.log("============");
+      console.log(content);
+      fs.writeFile('File3.txt', content, 'utf8', function (err) {
+        fs.readFile('File3.txt', 'utf8', function (err, dt) {
+          console.log("============");
+          console.log(dt);
+          console.log("============");
+        })
+      });
+    })  
+  });
+});
+
