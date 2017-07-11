@@ -1,14 +1,14 @@
 exports.flatten = function (unflatObject) {
-	var obj = {};
-  	for(var x in unflatObject) {
+  const object = {};
+    for(var x in unflatObject) {
       var str = String();
-      typeof unflatObject[x] != 'object' ? obj[x] = unflatObject[x] : flattenMethod(obj, unflatObject[x], str += x);
+      typeof unflatObject[x] != 'object' ? object[x] = unflatObject[x] : flattenMethod(object, unflatObject[x], str += x);
     }
-    return obj;
+    return object;
 }
 
-function flattenMethod(obj, y, str) {
+function flattenMethod(object, y, str) {
   for(var x in y) {
-    typeof y[x] != 'object' ? obj[ str + "." +x ] = y[x] : flattenMethod(obj, y[x], str + "." + x);
+    typeof y[x] != 'object' ? object[ str + "." +x ] = y[x] : flattenMethod(object, y[x], str + "." + x);
   }
 }

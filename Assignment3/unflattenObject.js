@@ -1,16 +1,16 @@
 exports.unflatten = function (flatObject) {
-  var obj = {};
+  const object = {};
   for ( var x in flatObject) {
-    var arr = x.split(".");
-    myMethod(obj, arr, flatObject[x]);
+    var array = x.split(".");
+    unflattenFunction(object, array, flatObject[x]);
   }
-  return obj;
+  return object;
 }
-function myMethod (obj, arr, val) {
-  for (var i = 0; i < arr.length-1; i++) {
-    if(!(arr[i] in obj))
-      /\d/g.test(arr[i+1]) ? obj[arr[i]] = [] : obj[arr[i]] = {};
-      obj = obj[arr[i]];
+function unflattenFunction (object, array, val) {
+  for (var i = 0; i < array.length-1; i++) {
+    if(!(array[i] in object))
+      /\d/g.test(array[i+1]) ? object[array[i]] = [] : object[array[i]] = {};
+      object = object[array[i]];
   }
-  obj[arr[arr.length-1]] = val;
+  object[array[array.length-1]] = val;
 }
