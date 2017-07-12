@@ -1,4 +1,4 @@
-var fs = require('fs');
+const fs = require('fs');
 fs.readFile('File1.txt', 'utf8', function (err, data) {
   console.log("============");
   console.log(data);
@@ -7,13 +7,12 @@ fs.readFile('File1.txt', 'utf8', function (err, data) {
       console.log("============");
       console.log(content);
       fs.writeFile('File3.txt', content, 'utf8', function (err) {
-        fs.readFile('File3.txt', 'utf8', function (err, dt) {
+        fs.readFile('File3.txt', 'utf8', function (err, data) {
           console.log("============");
-          console.log(dt);
+          console.log(data);
           console.log("============");
-        })
+        });
       });
     })  
   });
 });
-
