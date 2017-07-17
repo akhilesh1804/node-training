@@ -29,13 +29,13 @@ read('File1.txt', 'utf8')
  .then((result, reject) => {
     console.log("==========");
     console.log(result);
-    append('File2.txt', result, 'utf8');
+    return append('File2.txt', result, 'utf8');
   })
  .then((result, reject) => read('File2.txt', 'utf8'))
  .then((result, reject) => {
     console.log("==========");
     console.log(result);
-    write('File3.txt', result, 'utf8');
+    return write('File3.txt', result, 'utf8');
   })
  .then((result, reject) => read('File3.txt', 'utf8'))
  .then((result, reject) => {
