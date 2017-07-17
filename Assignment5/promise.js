@@ -4,6 +4,7 @@ const read = (file, coding) => {
     fs.readFile(file, coding, (err, data) => {
       (err) ? reject(err) : resolve(data);
     });
+  });
   return promise;
 };
 
