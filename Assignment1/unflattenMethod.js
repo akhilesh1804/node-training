@@ -1,17 +1,18 @@
+"use strict";
 function unflatten(flatObject) {
-  var obj = {};
-  for ( var x in flatObject) {
-    var arr = x.split(".");
-    myMethod(obj, arr, flatObject[x]);
+  const unflatObject = {};
+  for (let key in flatObject) {
+    var array = key.split(".");
+    myMethod(unflatObject, array, flatObject[key]);
   }
-  console.log(obj);
-  return obj;
+  
+  return unflatObject;
 }
-function myMethod (obj, arr, val) {
-  for (var i = 0; i < arr.length-1; i++) {
-    if(!(arr[i] in obj))
-      /\d/g.test(arr[i+1]) ? obj[arr[i]] = [] : obj[arr[i]] = {};
-      obj = obj[arr[i]];
+function myMethod (unflatObject, array, value) {
+  for (let index = 0; index < array.length-1; index++) {
+    if(!(array[index] in unflatObject))
+      /\d/g.test(array[index+1]) ? unflatObject[array[index]] = [] : unflatObject[array[index]] = {};
+      unflatObject = unflatObject[array[index]];
   }
-  obj[arr[arr.length-1]] = val;
+  unflatObject[array[array.length-1]] = value;
 }

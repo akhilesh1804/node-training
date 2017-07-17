@@ -1,28 +1,23 @@
+"use strict";
 function flatten(unflatObject) {
-  // Write your code here
-  var obj = {};
-  for(var x in unflatObject) {
+  const flatObject = {};
+  for (let key in unflatObject) {
     var str = String();
-    if (typeof unflatObject[x] != 'object') {
-      obj[x] = unflatObject[x];
+    if (typeof unflatObject[key] !== 'object') {
+      flatObject[key] = unflatObject[key];
+      continue;
     }
-    else {
-      str += x;
-      flattenMethod(obj , unflatObject[x] , str);
-    }
+    flattenMethod(flatObject, unflatObject[key], str += key);
   }
-  console.log(obj);
-  return obj;
-  }
+  return flatObject;
+}
 
-  function flattenMethod(obj , y , str) {
-    console.log(str);
-    for(var x in y) {
-      if(typeof y[x] != 'object') {
-        obj[ str + "." +x ] = y[x];
-      }
-      else {  
-        flattenMethod(obj , y[x] , str + "." + x);
-      }
+function flattenMethod(flatObject, y, str) {
+  for (let key in y) {
+    if (typeof y[key] !== 'object') {
+      flatObject[str + "." + key] = y[key];
+      continue;
     }
+    flattenMethod(flatObject, y[key], str + "." + key);
   }
+}

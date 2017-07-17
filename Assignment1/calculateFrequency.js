@@ -1,18 +1,15 @@
 // AKHILESH GOUTAM
 // Calculate Frequency of letters in a string
-
+"use strict";
 function calculateFrequency(string) {
-  var freq = {}; var i,ch;
-  string = string.replace(/\s/g,'');
-  for(i=0;i<string.length;i++) {
-    ch=string.charAt(i);
-    if(/[a-z]/.test(ch) )
+  const frequency = {}; 
+  const noSpaceString = string.replace(/\s/g,'');
+  for (let index = 0; index < noSpaceString.length; index++) {
+    let character = noSpaceString[index];
+    if(/[a-z]/.test(character) )
       {
-        if(freq[ch])
-          freq[ch]++;
-        else
-          freq[ch]=1;
+        frequency[character] ? frequency[character]++ : frequency[character] = 1;
       }
   }
-  return freq;
+  return frequency;
 }
