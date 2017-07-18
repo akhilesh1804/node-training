@@ -1,6 +1,7 @@
-exports.flatten = function (unflatObject) {
+"use strict";
+exports.flatten =  (unflatObject) => {
   const object = {};
-    for(var x in unflatObject) {
+    for(let x in unflatObject) {
       var str = String();
       typeof unflatObject[x] != 'object' 
       ? object[x] = unflatObject[x] 
@@ -10,7 +11,7 @@ exports.flatten = function (unflatObject) {
 }
 
 function flattenMethod(object, y, str) {
-  for(var x in y) {
+  for(let x in y) {
     typeof y[x] != 'object' 
     ? object[ str + "." +x ] = y[x] 
     : flattenMethod(object, y[x], str + "." + x);
