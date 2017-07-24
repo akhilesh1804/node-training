@@ -1,0 +1,26 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "\"Assignment 9 - Node Middleware API Assignment\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akhilesh1804/node-training.git"
+  },
+  "author": "Akhilesh Goutam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akhilesh1804/node-training/issues"
+  },
+  "homepage": "https://github.com/akhilesh1804/node-training#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mongoose": "^4.11.3",
+    "passport": "^0.3.2",
+    "passport-http-bearer": "^1.0.1"
+  }
+}
